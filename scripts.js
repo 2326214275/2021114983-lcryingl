@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.getElementById('registerForm');
     const loginForm = document.getElementById('loginForm');
+    const searchForm = document.getElementById('search-form');
 
     // 模拟用户数据库
     const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -55,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 在首页显示欢迎信息和处理退出登录
+    // 在所有页面显示欢迎信息和处理退出登录
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
         const welcomeMessage = document.getElementById('welcomeMessage');
@@ -74,9 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
+    // 处理分类链接的点击事件
     const categoryLinks = document.querySelectorAll('.category-link');
 
     categoryLinks.forEach(link => {
@@ -96,4 +96,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 处理搜索表单的提交事件
+    if (searchForm) {
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const searchResults = document.getElementById('search-results');
+            searchResults.textContent = '该功能还在开发中。';
+        });
+    }
 });
