@@ -75,3 +75,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const categoryLinks = document.querySelectorAll('.category-link');
+
+    categoryLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault(); // 阻止默认链接跳转行为
+
+            // 获取分类链接的目标地址
+            const targetUrl = link.getAttribute('href');
+
+            // 检查是否为分类三
+            if (targetUrl === '#') {
+                // 如果是分类三，显示提示信息
+                alert('未找到对应文章！');
+            } else {
+                // 如果不是分类三，跳转到分类链接的目标地址
+                window.location.href = targetUrl;
+            }
+        });
+    });
+});
